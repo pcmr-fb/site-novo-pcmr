@@ -1,0 +1,41 @@
+{
+  "name": "pcmr-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server/index.mjs",
+    "build": "tsc -b && vite build",
+    "start": "node --env-file-if-exists=.env server/index.mjs --production",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "python3 tests/browser.py",
+    "build:preview": "npm run build && node scripts/build-preview.mjs",
+    "format": "prettier --write src server scripts tests/*.mjs *.json *.ts *.html *.md",
+    "test:preview": "python3 tests/standalone.py",
+    "test:a11y": "python3 tests/accessibility.py"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "^5.2.8",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "axe-core": "^4.14.0",
+    "prettier": "^3.9.10",
+    "supertest": "^7.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
+  }
+}
